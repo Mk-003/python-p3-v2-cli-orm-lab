@@ -68,15 +68,29 @@ def delete_department():
 # You'll implement the employee functions in the lab
 
 def list_employees():
-    pass
+    
+    if not employee_list:
+        print("No employees found.")
+        return
+
+    print("List of Employees:")
+    for employee in employee_list:
+        print(f"ID: {employee['id']}, Name: {employee['name']}, Age: {employee['age']}, Department: {employee['department']}")
 
 
 def find_employee_by_name():
-    pass
+    name = input("Enter the name of the employee you want to find: ")
+    for employee in employee_list:
+        if employee['name'] == name:
+            return employee
+    return None
 
 
 def find_employee_by_id():
-    pass
+    for employee in employee_list:
+        if employee['id'] == employee_id:
+            return employee
+    return None
 
 
 def create_employee():
